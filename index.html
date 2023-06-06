@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <title>Formularz</title>
+
+  </head>
+  <body>
+    <div id="app">
+            <h2>Formularz kontaktowy</h2>
+            <form @submit.prevent="submitForm">
+      
+              <div>
+                <label for="firstName">Imię:</label>
+                <input type="text" id="firstName" v-model="form.firstName" />
+                <span v-if="errors.firstName" class="error">{{ errors.firstName }}</span>
+              </div>
+      
+              <div>
+                <label for="lastName">Nazwisko:</label>
+                <input type="text" id="lastName" v-model="form.lastName" />
+                <span v-if="errors.lastName" class="error">{{ errors.lastName }}</span>
+              </div>
+      
+              <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" v-model="form.email" />
+                <span v-if="errors.email" class="error">{{ errors.email }}</span>
+              </div>
+      
+              <div>
+                <label for="phone">Numer telefonu:</label>
+                <input type="tel" id="phone" v-model="form.phone" />
+                <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
+              </div>
+      
+              <div>
+                <label for="message">Wiadomość:</label>
+                <textarea id="message" v-model="form.message"></textarea>
+                <span v-if="errors.message" class="error">{{ errors.message }}</span>
+              </div>
+      
+              <div>
+                  
+                <div class="check">
+                <input type="checkbox" id="privacyPolicy" style="width: 20px;" v-model="form.privacyPolicy"/>
+                <label for="privacyPolicy">Akceptuję politykę prywatności</label>
+                  
+              </div>
+              
+              <div>
+                <span v-if="errors.privacyPolicy" class="error">{{ errors.privacyPolicy }}</span>
+              </div>
+      
+              </div>
+      
+        <button type="submit">Wyślij</button>
+    </div>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
